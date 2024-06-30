@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Head or Tail</title>
+  <link rel="stylesheet" href="HeadTails.css">
+</head>
+<body>
+  <div class="Text">
+    <p class="Heading">
+      Head or Tails Game
+    </p>
+    
+  </div>
+  <div class="Text">
+    <p >How to Play</p>
+    
+  </div>
+  <div class="Text">
+   
+    <p>
+      If you choose Heads and the computer also chooses Heads ,You Win.<br>
+      If you choose Tails and the computer also chooses Tails ,You Win.<br>
+      Otherwise,You Lose.
+    </p>
+  </div>
+  <div class="Text">
+    <p class="choose">CHOOSE ONE:</p>
+  </div>
+  <div class="Buttons">
+      <button onclick="
+    playGame('Heads');
+        ">Heads</button>
+  <button onclick="
+    playGame('Tails');
+        ">Tails</button>
+  </div>
+  <div class="Text">
+    <p class="result"></p>
+
+  </div>
+  
+
+  <script>
+
+    function playGame(playerMove){
+      const computerMove=pickComputerMove();
+      let result=''
+      if (playerMove==='Tails'){
+        if(computerMove==='Tails'){
+          result='You Win'
+        }
+        else {
+          result='You Lose'
+        }
+      }
+      else if (playerMove==='Heads'){
+        if(computerMove==='Heads'){
+          result='You Win'
+        }
+        else {
+          result='You Lose'
+        }
+      }
+    document.querySelector('.result').innerHTML=`You picked ${playerMove} ,the Computer picked ${computerMove}. ${result}`
+
+    }
+
+
+
+    function pickComputerMove(){
+      const randomNumber=Math.random();
+      computerMove=''
+      if (randomNumber<=0.5){
+        computerMove=('Heads')
+      }
+      else{
+        computerMove=('Tails')
+      }
+      return computerMove;
+      }
+
+    
+
+  </script>
+  
+</body>
+</html>
